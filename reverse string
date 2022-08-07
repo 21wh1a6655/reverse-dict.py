@@ -1,0 +1,20 @@
+letters_dict = {}
+word = input("Enter the string : ")
+for i in word:
+    print(i)
+    if letters_dict.__contains__(i):
+        letters_dict[i] = letters_dict[i] + 1
+    else:
+        letters_dict[i] = 1
+while len(letters_dict) > 0:
+    sorted_values = sorted(letters_dict.values())
+    sorted_dict = {}
+    for i in sorted_values:
+        for j in letters_dict.keys():
+            if letters_dict[j] == i:
+                sorted_dict[j] = letters_dict[j]
+    break
+from collections import OrderedDict
+res = OrderedDict(reversed(list(sorted_dict.items())))
+print(dict(res))
+
